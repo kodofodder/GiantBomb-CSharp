@@ -1,0 +1,75 @@
+﻿@page
+@model giantbombTest.Pages.AddSearchModel
+@{
+    ViewData["Title"] = "AddSearch";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Search</h1>
+
+    <form>
+        <p>
+            Title: <input type="text" asp-for="SearchString" />
+            <input type="submit" value="Search" />
+        </p>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Games[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Games[0].OriginalReleaseDate.Value.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Games[0].Platforms)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        @if (Model.Games != null)
+        {
+            <tbody>
+                @foreach (var game in Model.Games)
+                {
+                <tr>
+                    <td>
+                        <img src=@game.Image.ThumbUrl>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => game.Name)
+                    </td>
+                    <td>
+                        @if (game.OriginalReleaseDate != null)
+                        {
+                            @Html.DisplayFor(m => game.OriginalReleaseDate.Value.Year)
+                        }
+                    </td>
+                    <td>
+                        @if (game.Platforms != null)
+                        {
+                            @foreach (var plat in game.Platforms)
+                            {
+                                <p>@plat.Name</p>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <a asp-page="./AddGame" asp-route-id="@game.Id">
+                            Add
+                        </a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+

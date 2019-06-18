@@ -19,7 +19,7 @@ namespace GiantBomb.Api.Model {
         public const int StatusErrorUrlFormat = 102;
         public const int StatusFilterError = 104;
         public const int StatusRateLimitExceeded = 107;
-        public const int DefaultLimit = 100;
+        public const int DefaultLimit = 25;
     }
 
     public class GiantBombResult<TResult> : GiantBombBase
