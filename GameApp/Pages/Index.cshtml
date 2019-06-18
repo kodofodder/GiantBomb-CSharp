@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <a asp-page="./AddSearch">Add Game</a>
+</div>
+
+    <table class="table">
+           <thead>
+               <tr>
+                   <th>
+                       Thumbnail
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Games[0].Game.Name)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Games[0].Game.OriginalReleaseDate.Value.Year)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Games[0].GameItem.Platform)
+                   </th>
+               </tr>
+           </thead>
+           @if (Model.Games != null)
+           {
+               <tbody>
+                   @foreach (var i in Model.Games)
+                   {
+                   <tr>
+                       <td>
+                           <img src=@i.Game.Image.ThumbUrl>
+                       </td>
+                       <td>
+                           <a asp-page="./ViewGame" asp-route-id="@i.Game.Id">
+                               @Html.DisplayFor(m => i.Game.Name)
+                           </a>
+                       </td>
+                       <td>
+                           @if (i.Game.OriginalReleaseDate != null)
+                           {
+                               @Html.DisplayFor(m => i.Game.OriginalReleaseDate.Value.Year)
+                           }
+                       </td>
+                       <td>
+                           @Html.DisplayFor(m => i.GameItem.Platform)
+                       </td>
+                   </tr>
+                   }
+               </tbody>
+           }
+       </table>
+

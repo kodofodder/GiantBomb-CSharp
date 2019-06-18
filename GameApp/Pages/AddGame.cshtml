@@ -1,0 +1,37 @@
+﻿@page
+@model giantbombTest.Pages.AddGameModel
+@{
+    ViewData["Title"] = "AddGame";
+}
+
+
+@{var game = Model.Game; }
+<h1>@game.Name</h1>
+<p>Released: @game.OriginalReleaseDate.Value.Year</p>
+<p>@game.Publishers[0].Name</p>
+<h2>About</h2>
+<p>
+    @game.Deck
+</p>
+<p>Platforms: </p>
+<ul>
+    @foreach (var plat in game.Platforms)
+    {
+        <li>@plat.Name</li>
+    }
+</ul>
+
+<p>
+    id = @game.Id
+    platID = @game.Platforms[0].Id
+</p>
+
+<p>Select platform:</p>
+@foreach (var plat in game.Platforms)
+{
+    <div>
+        <input type="radio" id=@plat.Id name="platform">
+        <label for=@plat.Id>@plat.Name</label>
+    </div>
+}
+<input type="submit" value="Submit" />

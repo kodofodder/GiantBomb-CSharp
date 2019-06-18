@@ -1,0 +1,13 @@
+﻿@page
+@model giantbombTest.Pages.TestPageModel
+@{
+    ViewData["Title"] = "TestPage";
+}
+
+<h1>TestPage</h1>
+<ul>
+    @foreach (var game in Model.Games)
+    {
+        <li>@game.Name</li>
+    }
+</ul>
