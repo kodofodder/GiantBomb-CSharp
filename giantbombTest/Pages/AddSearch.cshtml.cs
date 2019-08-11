@@ -29,10 +29,13 @@ namespace giantbombTest.Pages
         {
             if (!string.IsNullOrEmpty(SearchString))
             {
-                var results = await _client.SearchForGamesAsync(SearchString);
+                var results = await _client.SearchForGamesAsync(SearchString, 1, 20);
                 //filters out unreleased games
                 results = from game in results
-                          where game.OriginalReleaseDate != null
+                          where game.ExpectedReleaseYear != null
+                          && game.ExpectedReleaseMonth != null
+                          && game.ExpectedReleaseDay != null
+                          && (new DateTime(game.ExpectedReleaseYear.Value, game.ExpectedReleaseMonth.Value, game.ExpectedReleaseDay.Value) <= DateTime.Now)
                           select game;
 
                 //results = results.OrderByDescending(g => g.OriginalReleaseDate);

@@ -40,13 +40,10 @@
                            </a>
                        </td>
                        <td>
-                           @if (i.Game.OriginalReleaseDate != null)
-                           {
-                               @Html.DisplayFor(m => i.Game.OriginalReleaseDate.Value.Year)
-                           }
+                           @Html.DisplayFor(m => i.Game.ExpectedReleaseYear)
                        </td>
                        <td>
-                           @Html.DisplayFor(m => i.GameItem.Platform)
+                           @Html.DisplayFor(m => i.GameItem.PlatformGbID)
                        </td>
                    </tr>
                    }

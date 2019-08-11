@@ -23,6 +23,7 @@ namespace giantbombTest.Pages
 
         [BindProperty]
         public GameItem GameItem { get; set; }
+
         public Game Game { get; set; }
 
         public void OnGet(int id)
@@ -31,16 +32,10 @@ namespace giantbombTest.Pages
         }
 
         
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            GameItem.GbID = Game.Id;
-            GameItem.DateAdded = DateTime.Today;
-            GameItem.Name = Game.Name;
 
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+    
 
             _context.GameItem.Add(GameItem);
             await _context.SaveChangesAsync();

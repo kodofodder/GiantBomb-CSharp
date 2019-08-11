@@ -47,10 +47,7 @@
                         @Html.DisplayFor(m => game.Name)
                     </td>
                     <td>
-                        @if (game.OriginalReleaseDate != null)
-                        {
-                            @Html.DisplayFor(m => game.OriginalReleaseDate.Value.Year)
-                        }
+                        @Html.DisplayFor(m => game.ExpectedReleaseYear)
                     </td>
                     <td>
                         @if (game.Platforms != null)

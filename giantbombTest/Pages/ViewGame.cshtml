@@ -7,7 +7,7 @@
 @{var game = Model.Game;}
 
 <h1>@game.Name</h1>
-<p>Released: @game.OriginalReleaseDate.Value.Year</p>
+<p>Released: @game.ExpectedReleaseYear</p>
 <p>@game.Publishers[0].Name</p>
 <h2>About</h2>
 <p>
@@ -20,8 +20,3 @@
         <li>@plat.Name</li>
     }
 </ul>
-
-<p>
-    id = @game.Id
-    platID = @game.Platforms[0].Id
-</p>

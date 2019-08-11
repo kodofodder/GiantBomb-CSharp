@@ -26,7 +26,7 @@ namespace giantbombTest.Pages
         public IList<GameItem> GameEntry { get; set; }
         public IList<GameView> Games { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGet()
         {
             GameEntry = await _context.GameItem.ToListAsync();
             Games = new List<GameView>();

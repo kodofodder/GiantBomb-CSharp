@@ -7,7 +7,7 @@
 
 @{var game = Model.Game; }
 <h1>@game.Name</h1>
-<p>Released: @game.OriginalReleaseDate.Value.Year</p>
+<p>Released: @game.ExpectedReleaseYear</p>
 <p>@game.Publishers[0].Name</p>
 <h2>About</h2>
 <p>
@@ -21,17 +21,18 @@
     }
 </ul>
 
-<p>
-    id = @game.Id
-    platID = @game.Platforms[0].Id
-</p>
 
 <p>Select platform:</p>
-@foreach (var plat in game.Platforms)
-{
-    <div>
-        <input type="radio" id=@plat.Id name="platform">
-        <label for=@plat.Id>@plat.Name</label>
-    </div>
-}
-<input type="submit" value="Submit" />
+<form method="post">
+    <input type="hidden" value="@Model.Game.Id" asp-for="GameItem.GbID" />
+    <input type="hidden" value="@DateTime.Today" asp-for="GameItem.DateAdded" />
+    <input type="hidden" value="@Model.Game.Name" asp-for="GameItem.Name" />
+    @foreach (var plat in game.Platforms)
+    {
+        <div>
+            <input type="radio" value=@plat.Id asp-for="GameItem.PlatformGbID" name="platform">
+            <label for=@plat.Id>@plat.Name</label>
+        </div>
+    }
+    <input type="submit" value="Submit" />
+</form>
