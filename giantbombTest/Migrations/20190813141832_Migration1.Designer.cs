@@ -10,8 +10,8 @@ using giantbombTest.Models;
 namespace giantbombTest.Migrations
 {
     [DbContext(typeof(dbContext))]
-    [Migration("20190617062515_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190813141832_Migration1")]
+    partial class Migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,6 @@ namespace giantbombTest.Migrations
                     b.Property<string>("Name");
 
                     b.Property<string>("Platform");
-
-                    b.Property<int>("PlatformGbID");
 
                     b.HasKey("ID");
 

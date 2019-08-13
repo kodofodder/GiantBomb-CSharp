@@ -13,10 +13,11 @@
 <p>
     @game.Deck
 </p>
-<p>Platforms: </p>
-<ul>
-    @foreach (var plat in game.Platforms)
-    {
-        <li>@plat.Name</li>
-    }
-</ul>
+<p>Platform: @Model.GameItem.Platform</p>
+<p>Date Added: @Model.GameItem.DateAdded.Date</p>
+
+<form method="post">
+    <input type="hidden" asp-for="GameItem.ID" />
+    <input type="submit" value="Delete"/>
+    <a asp-page="./Index">Back to List</a>
+</form>

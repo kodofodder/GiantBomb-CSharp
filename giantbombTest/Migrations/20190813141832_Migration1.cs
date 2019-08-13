@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace giantbombTest.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Migration1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,6 @@ namespace giantbombTest.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     GbID = table.Column<int>(nullable: false),
-                    PlatformGbID = table.Column<int>(nullable: false),
                     Platform = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false)

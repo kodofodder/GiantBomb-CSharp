@@ -24,7 +24,6 @@ namespace giantbombTest.Models
                     new GameItem
                     {
                         GbID = 2950,
-                        PlatformGbID = 20,
                         Platform = "Xbox 360",
                         Name = "Assassin's Creed",
                         DateAdded = DateTime.Parse("2019-6-16")
@@ -32,7 +31,6 @@ namespace giantbombTest.Models
                     new GameItem
                     {
                         GbID = 52633,
-                        PlatformGbID = 94,
                         Platform = "PC",
                         Name = "Call of Duty: Infinite Warfare",
                         DateAdded = DateTime.Parse("2019-6-16")
@@ -40,7 +38,6 @@ namespace giantbombTest.Models
                     new GameItem
                     {
                         GbID = 56733,
-                        PlatformGbID = 157,
                         Platform = "Nintendo Switch",
                         Name = "Super Mario Odyssey",
                         DateAdded = DateTime.Parse("2019-6-16")

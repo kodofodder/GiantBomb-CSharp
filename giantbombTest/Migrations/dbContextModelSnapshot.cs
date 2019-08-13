@@ -33,8 +33,6 @@ namespace giantbombTest.Migrations
 
                     b.Property<string>("Platform");
 
-                    b.Property<int>("PlatformGbID");
-
                     b.HasKey("ID");
 
                     b.ToTable("GameItem");

@@ -13,14 +13,6 @@
 <p>
     @game.Deck
 </p>
-<p>Platforms: </p>
-<ul>
-    @foreach (var plat in game.Platforms)
-    {
-        <li>@plat.Name</li>
-    }
-</ul>
-
 
 <p>Select platform:</p>
 <form method="post">
@@ -30,9 +22,9 @@
     @foreach (var plat in game.Platforms)
     {
         <div>
-            <input type="radio" value=@plat.Id asp-for="GameItem.PlatformGbID" name="platform">
-            <label for=@plat.Id>@plat.Name</label>
+            <input type="radio" value=@plat.Name asp-for="GameItem.Platform">
+            <label>@plat.Name</label>
         </div>
     }
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Add Game" />
 </form>

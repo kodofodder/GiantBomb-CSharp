@@ -13,7 +13,6 @@ namespace giantbombTest.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int GbID { get; set; }
-        public int PlatformGbID { get; set; }
         public string Platform { get; set; }
         public string Name { get; set; }
 

@@ -35,7 +35,7 @@
                            <img src=@i.Game.Image.ThumbUrl>
                        </td>
                        <td>
-                           <a asp-page="./ViewGame" asp-route-id="@i.Game.Id">
+                           <a asp-page="./ViewGame" asp-route-id="@i.GameItem.ID">
                                @Html.DisplayFor(m => i.Game.Name)
                            </a>
                        </td>
@@ -43,7 +43,7 @@
                            @Html.DisplayFor(m => i.Game.ExpectedReleaseYear)
                        </td>
                        <td>
-                           @Html.DisplayFor(m => i.GameItem.PlatformGbID)
+                           @Html.DisplayFor(m => i.GameItem.Platform)
                        </td>
                    </tr>
                    }
