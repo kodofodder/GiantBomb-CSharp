@@ -15,14 +15,17 @@
                        Thumbnail
                    </th>
                    <th>
-                       @Html.DisplayNameFor(model => model.Games[0].Game.Name)
-                   </th>
+                       <a asp-page="./Index" asp-route-id="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Games[0].Game.Name)</a>
+</th>
                    <th>
-                       @Html.DisplayNameFor(model => model.Games[0].Game.OriginalReleaseDate.Value.Year)
-                   </th>
+                       <a asp-page="./Index" asp-route-id="@ViewData["ReleaseSortParm"]">@Html.DisplayNameFor(model => model.Games[0].Game.OriginalReleaseDate.Value.Year)</a>
+</th>
                    <th>
-                       @Html.DisplayNameFor(model => model.Games[0].GameItem.Platform)
-                   </th>
+                       <a asp-page="./Index" asp-route-id="@ViewData["PlatformSortParm"]">@Html.DisplayNameFor(model => model.Games[0].GameItem.Platform)</a>
+</th>
+                   <th>
+                       <a asp-page="./Index" asp-route-id="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Games[0].GameItem.DateAdded)</a>
+</th>
                </tr>
            </thead>
            @if (Model.Games != null)
@@ -44,6 +47,9 @@
                        </td>
                        <td>
                            @Html.DisplayFor(m => i.GameItem.Platform)
+                       </td>
+                       <td>
+                           @i.GameItem.DateAdded.ToShortDateString()
                        </td>
                    </tr>
                    }
